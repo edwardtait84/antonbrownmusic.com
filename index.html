@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oboist Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Trebuchet MS', sans-serif;
+      background-color: #ffffff;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #eee;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #222;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #222;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+      color: #111;
+    }
+
+    /* About Section */
+    .about ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+
+    /* Social Media Icons */
+    .social-icons {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 1.8rem;
+      padding-top: 0.5rem;
+    }
+    .social-icons a {
+      color: #444;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      color: #000;
+    }
+
+    /* Concerts */
+    .concerts ul {
+      list-style: none;
+      padding: 0;
+    }
+    .concerts li {
+      background-color: #f9f9f9;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #333;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        padding-left: 0;
+      }
+    }
+
+/* Hero Image Section */
+.hero-image {
+  position: relative;
+  width: 90vw;          /* 90% of viewport width */
+  max-width: 1200px;    /* Optional max width for large screens */
+  max-height: 400px;
+  margin: 0 auto;       /* Center horizontally */
+  overflow: hidden;
+  border-radius: 6px;   /* Optional: soften edges */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* subtle shadow for style */
+}
+
+.hero-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.hero-text h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+.hero-text p {
+  margin: 0.3rem 0 0;
+  font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+  background-color: #f7f7f7;
+  color: #555;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-content p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+nav {
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 1rem 0;
+  display: block;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .nav-list {
+    position: absolute;
+    top: 60px; /* height of nav */
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    gap: 0;
+    display: none;
+    border-top: 1px solid #ccc;
+    z-index: 1000;
+  }
+  .nav-list.show {
+    display: flex;
+  }
+  .nav-list li a {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.top-nav {
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.75rem; /* small text */
+  padding: 0.5rem 0;
+  margin: 0;
+  text-align: center; /* center the container */
+}
+
+.top-nav ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: inline-flex;        /* horizontal row */
+  gap: 1.5rem;
+  justify-content: center;
+  white-space: nowrap;         /* prevent wrapping */
+  overflow-x: auto;            /* allow horizontal scroll if needed */
+}
+
+.top-nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.top-nav ul li a:hover {
+  color: #0077cc;
+}
+
+.bio-photo-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.bio-photo-container p {
+  flex: 1;
+  font-size: 1rem;
+}
+
+.bio-photo {
+  flex-shrink: 0;
+  width: 300px;
+  max-width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.bio-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 600px) {
+  .bio-photo-container {
+    flex-direction: column;
+  }
+  .bio-photo {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .video-item iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+    border-radius: 8px;
+    aspect-ratio: 16 / 9;
+  }
+  
+  .video-item h3 {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .video-item p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+
+
+
+  </style>
+</head>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navList = document.querySelector('.nav-list');
+
+  hamburger.addEventListener('click', () => {
+    navList.classList.toggle('show');
+  });
+</script>
+
+
+
+
+<body>
+
+
+  <!-- Hero Section with main photo -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="header-photo.jpg" alt="Anton Brown Main Photo">
+      <div class="hero-text">
+        <h1>Anton Marley Brown</h1>
+	<!--
+        <p>Oboist • Performer • Music Enthusiast</p>
+	-->
+      </div>
+    </div>
+  </section>
+
+<nav class="top-nav">
+  <ul>
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#engagements">Engagements</a></li>
+    <li><a href="#gallery">Photo Gallery</a></li>
+    <li><a href="#socials">Social Media</a></li>
+    <li><a href="#concerts">Upcoming Concerts</a></li>
+  </ul>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="bio-photo-container">
+    <p>Anton Brown is a Caribbean-British oboist, who has played the oboe for 10 years, and is now studying at the Royal Academy of Music under Tom Blomfield and Patrick Flanaghan. He's interested in combining classical influences into genres associated with black identity such as R&B and jazz, but also is fascinated by emotionally dramatic works of the Romantic era. He is also deeply passionate about music education for all and works with younger musicians through the National Children's Orchestras for Great Britain and The Nucleo Project. In 2023, he became a London Philharmonic Orchestra Junior Artist (LPO JA) where he was mentored by Alice Munday and currently, he is the principal oboist of the Chineke! Junior Orchestra and has been coached by Banita Wheatley-Holmes, Lorraine Hart and Esther Williams. Since arriving at the Academy, he has been awarded as Highly Commended in the 2025 Oboe Prize and has played various symphonic works at the Royal Festival Hall, Fairfield Halls, The Clore Ballroom, St. John's Smith Square and Cadogan Hall.</p>
+    <div class="bio-photo">
+      <img src="bio-photo.jpg" alt="Anton Brown Photo" />
+    </div>
+  </div>
+</section>
+
+  <section id="engagements">
+    <h2>Engagements</h2>
+    <div class="gallery">
+      <img src="logo1.jpg">
+      <img src="logo2.jpg">
+      <img src="logo3.jpg">
+      <img src="logo4.jpg">
+      <img src="logo5.jpg">
+      <img src="logo6.jpg">
+      <img src="logo7.jpg">
+      <img src="logo8.jpg">
+      <img src="logo9.jpg">
+      <img src="logo10.jpg">
+      <img src="logo11.jpg">
+      <img src="logo12.jpg">
+      <img src="logo13.jpg">
+      <img src="logo14.jpg">
+      <img src="logo15.jpg">
+      <img src="logo16.jpg">
+      <img src="logo17.jpg">
+      <img src="logo18.jpg">
+      <img src="poster1.jpg">
+      <img src="poster2.jpg">
+    </div>
+  </section>
+
+  <section id="concerts" class="concerts">
+    <h2>Upcoming Concerts</h2>
+    <ul>
+      <li>
+        <strong>September 28, 2025 – Chineke! Juniors Orchestra plays at the Southbank Centre</strong><br>
+        Royal Festival Hall, 7:00 PM<br><a href="https://www.southbankcentre.co.uk/whats-on/chineke-junior-orchestra/">Click here</a> to find out more...
+      </li>
+      <li>
+        <strong>October 17, 2025 – London Transport Museum: Transported by Culture concerts - 'A Trinity of Duos'</strong><br>
+        Covent Garden Piazza, 2:00 PM<br><a href="https://www.ltmuseum.co.uk/whats-on/music-museum">Click here</a> to find out more...
+      </li>
+    </ul>
+  </section>
+
+  <section id="gallery">
+    <h2>Photo Gallery</h2>
+    <div class="gallery">
+      <img src="photo49">
+      <img src="photo1.jpg">
+      <img src="photo2.jpg">
+      <img src="photo3.jpg">
+      <img src="photo4.jpg">
+      <img src="photo5.jpg">
+      <img src="photo6.jpg">
+      <img src="photo7.jpg">
+      <img src="photo8.jpg">
+      <img src="photo9.jpg">
+      <img src="photo10.jpg">
+      <img src="photo11.jpg">
+      <img src="photo12.jpg">
+      <img src="photo13.jpg">
+      <img src="photo14.jpg">
+      <img src="photo15.jpg">
+      <img src="photo16.jpg">
+      <img src="photo17.jpg">
+      <img src="photo18.jpg">
+      <img src="photo19.jpg">
+      <img src="photo20.jpg">
+      <img src="photo21.jpg">
+      <img src="photo22.jpg">
+      <img src="photo23.jpg">
+      <img src="photo24.jpg">
+      <img src="photo25.jpg">
+      <img src="photo26.jpg">
+      <img src="photo27.jpg">
+      <img src="photo28.jpg">
+      <img src="photo29.jpg">
+      <img src="photo30.jpg">
+      <img src="photo31.jpg">
+      <img src="photo32.jpg">
+      <img src="photo33.jpg">
+      <img src="photo34.jpg">
+      <img src="photo35.jpg">
+      <img src="photo36.jpg">
+      <img src="photo37.jpg">
+      <img src="photo38.jpg">
+      <img src="photo39.jpg">
+      <img src="photo40.jpg">
+      <img src="photo41.jpg">
+      <img src="photo42.jpg">
+      <img src="photo43.jpg">
+      <img src="photo44.jpg">
+      <img src="photo45.jpg">
+      <img src="photo46.jpg">
+      <img src="photo47.jpg">
+      <img src="photo48.jpg">
+      <img src="photo49.jpg">
+    </div>
+  </section>
+
+    <section id="videos" class="tab-content">
+        <h2>Videos</h2>
+      
+        <div class="video-grid">
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/watch?v=dKh9jXGu75Y" allowfullscreen></iframe>
+            <h3>Anton Brown and Dorian Voinea play Coste</h3>
+            <p>Napoléon Coste's Cavatine op. 37 for oboe and guitar</p>
+          </div>
+      
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/watch?v=hJ2pqXLcSUo" allowfullscreen></iframe>
+            <h3>Anton Brown plays Robert and Clara Schumann</h3>
+            <p>Robert Schumann's Romance no. 2 for oboe and piano and Clara Schumann's Romance no. 1 for violin and piano (arr. for oboe)</p>
+          </div>
+          <!-- Add more video blocks as needed -->
+        </div>
+      </section>
+
+  <section id="socials">
+    <h2>Social Media</h2>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61555647129663" target="_blank"><i class="fab fa-facebook-square"></i></a>
+      <a href="https://www.instagram.com/antonbrown_music/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/anton-brown-b1a67b272/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:anton_brown4@hotmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.youtube.com/@thatoneoddoboist/videos" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </section>
+
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 Anton Brown. All rights reserved.</p>
+    <p>A Website by <a href="https://eptwebsites.com">EPT Websites</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
